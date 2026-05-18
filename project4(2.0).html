@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Art Collection</title>
+<link rel="stylesheet" href="project4(2.0).css">
+</head>
+
+<body>
+
+<header>
+  <button onclick="goToPage('project2(2.0).html')">← Back</button>
+  <h1>Art Collection</h1>
+  <button onclick="toggleDark()">🌙</button>
+</header>
+
+<div class="gallery">
+
+  <!-- LEFT -->
+  <div class="side">
+
+    <div class="img-box">
+      <img src="https://i.pinimg.com/736x/38/d5/fc/38d5fcf9b378b9d4b11f89ca949e0f78.jpg"
+      onclick="openImage(this.src,'Classic Painting','18th century European art focusing on realism and detail. Focuses on realistic human figures,fine details,and balanced composition.')">
+      <button onclick="like(this)">❤️</button>
+    </div>
+
+    <div class="img-box">
+      <img src="https://i.pinimg.com/736x/33/61/a1/3361a15d0be1d82f451605377cdb20cd.jpg"
+      onclick="openImage(this.src,'Abstract Art','Modern art expressing emotions through colors and shapes. Focuses on emotions instead of realistic objects,shapes,colors and textures.')">
+      <button onclick="like(this)">❤️</button>
+    </div>
+
+  </div>
+
+  <!-- CENTER -->
+  <div class="center">
+    <h1>Explore Art</h1>
+
+    <h3>Art is a reflection of human creativity, culture, and imagination.</h3>
+    <p>This gallery brings together different styles and eras.</p>
+    <p>Artists use colors, textures, and forms to express emotions.</p>
+    <p>1. Classical Art:
+    Very detailed and realistic
+    Focus on religion, mythology, royalty
+    Example: Renaissance paintings</p>
+    <p>
+    2. Modern Art:
+    Focus on ideas and emotions
+    Abstract shapes, bold colors
+    Doesn’t always look “realistic”</p>
+
+    <p>
+    3. Contemporary Art:
+    Created recently
+    Often experimental or interactive
+    Can include videos, digital art, installations</p>
+
+    <img class="center-img"
+    src="https://i.pinimg.com/1200x/05/57/de/0557de2e28faa62a8b973bddef0ba44c.jpg"
+    onclick="openImage(this.src,'Modern Installation','A contemporary artwork showing creativity and innovation.')">
+
+  </div>
+
+  <!-- RIGHT -->
+  <div class="side">
+
+    <div class="img-box">
+      <img src="https://i.pinimg.com/736x/f2/a1/f5/f2a1f5a00ceefc664add2f820689bf57.jpg"
+      onclick="openImage(this.src,'Van Gogh Style','Post-impressionist style with bold colors and strokes.It gives a strong emotional impression,simple subjects painted in dramatic ways.')">
+      <button onclick="like(this)">❤️</button>
+    </div>
+
+    <div class="img-box">
+      <img src="https://i.pinimg.com/1200x/44/01/1f/44011f0174cd3d3e926b659958c9e839.jpg"
+      onclick="openImage(this.src,'Contemporary Art','Modern creative artwork reflecting current ideas.Focuses on ideas,concepts not just beauty.Mix of different materials.')">
+      <button onclick="like(this)">❤️</button>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- POPUP -->
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <img id="popup-img">
+
+    <div class="info">
+      <h2 id="title"></h2>
+      <p id="desc"></p>
+    </div>
+
+    <span onclick="closeImage()">×</span>
+  </div>
+</div>
+
+
+<div id="cardPopup" class="popup">
+  <div class="popup-content">
+    <img id="cardImg">
+
+    <div class="info">
+      <h2 id="cardTitle"></h2>
+      <p id="cardDesc"></p>
+    </div>
+
+    <span onclick="closeCard()">×</span>
+  </div>
+</div>
+
+
+
+
+
+<section class="extra">
+  <h2 class="reveal">🎨 Evolution of Art</h2>
+  <p class="reveal">
+    Art has evolved from cave paintings to digital masterpieces. Each era reflects human thought,
+    culture, and technology of its time.
+  </p>
+
+  <div class="extra-card reveal"
+     onclick="openCard(
+      '🗿 Prehistoric Art',
+      'https://i.pinimg.com/736x/f5/bb/b4/f5bbb46820d7d3b9f41753f24db74516.jpg',
+      'Prehistoric art includes cave paintings and carvings made by early humans to represent hunting scenes, animals, and daily life.'
+     )">
+  <h3>🗿 Prehistoric Art</h3>
+  <p>Cave paintings and carvings showing early human life.</p>
+</div>
+
+<div class="extra-card reveal"
+     onclick="openCard(
+      '🏛️ Renaissance',
+      'https://i.pinimg.com/736x/90/e0/75/90e075744d2b7892bb87e83fb2826c16.jpg',
+      'Renaissance art focused on realism, perspective, and human beauty. Artists like Leonardo da Vinci and Michelangelo transformed art forever.'
+     )">
+  <h3>🏛️ Renaissance</h3>
+  <p>Revival of realism and classical ideas.</p>
+</div>
+
+<div class="extra-card reveal"
+     onclick="openCard(
+      '🧠 Digital Art',
+      'https://i.pinimg.com/1200x/72/44/0f/72440f6b77a824e1b429a62d5c53622d.jpg',
+      'Digital art uses computers, AI, and software tools to create modern visual experiences including animations, NFTs, and interactive media.'
+     )">
+  <h3>🧠 Digital Art</h3>
+  <p>Art created using modern technology and AI.</p>
+</div>
+
+</section>
+
+<script>
+function goToPage(p){
+  window.location.href = p;
+}
+
+function openImage(src, title, desc){
+  document.getElementById("popup").style.display = "flex";
+  document.getElementById("popup-img").src = src;
+  document.getElementById("title").innerText = title;
+  document.getElementById("desc").innerText = desc;
+}
+
+function closeImage(){
+  document.getElementById("popup").style.display = "none";
+}
+
+function like(btn){
+  btn.classList.toggle("liked");
+}
+
+function toggleDark(){
+  document.body.classList.toggle("dark");
+}
+
+/* ✅ ANIMATION TRIGGER */
+window.addEventListener("load", () => {
+  document.body.classList.add("loaded");
+});
+
+
+
+
+
+/* SCROLL REVEAL EFFECT */
+const reveals = document.querySelectorAll(".reveal");
+
+window.addEventListener("scroll", () => {
+  const windowHeight = window.innerHeight;
+
+  reveals.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+
+    if(top < windowHeight - 100){
+      el.classList.add("active");
+    }
+  });
+});
+
+
+
+function openCard(title, img, desc){
+  document.getElementById("cardPopup").style.display = "flex";
+  document.getElementById("cardImg").src = img;
+  document.getElementById("cardTitle").innerText = title;
+  document.getElementById("cardDesc").innerText = desc;
+}
+
+function closeCard(){
+  document.getElementById("cardPopup").style.display = "none";
+}
+</script>
+
+
+
+
+</body>
+</html>

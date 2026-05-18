@@ -1,0 +1,189 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at top, #0b1d2a, #000814);
+  color: white;
+}
+
+/* HEADER (FIXED HERO LOOK) */
+header {
+  padding: 25px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+header button {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 20px;
+  background: #ff4d6d;
+  color: white;
+  cursor: pointer;
+}
+
+header h1 {
+  font-size: 42px;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+/* LAYOUT */
+.layout {
+  display: flex;
+  gap: 20px;
+  padding: 30px;
+}
+
+/* FEATURED SECTION (MAGAZINE STYLE) */
+.featured {
+  flex: 2;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.featured img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+
+.featured .content {
+  padding: 20px;
+}
+
+.featured h2 {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.featured p {
+  color: #ccc;
+  line-height: 1.6;
+}
+
+.featured button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  background: #00d9ff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* SIDE TOPICS */
+.topics {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.topic {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.topic:hover {
+  transform: scale(1.05);
+  background: rgba(255,255,255,0.1);
+}
+
+/* GALLERY (SCIENCE STRIP STYLE) */
+.gallery {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+.gallery img {
+  width: 200px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid rgba(255,255,255,0.2);
+  transition: 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.08);
+}
+
+/* POPUP (GLASS EFFECT) */
+.popup {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  background: rgba(20,20,20,0.95);
+  padding: 25px;
+  width: 350px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.box h2 {
+  margin-top: 0;
+}
+
+.box span {
+  cursor: pointer;
+  display: block;
+  margin-top: 10px;
+  font-size: 18px;
+  color: #ff4d6d;
+}
+
+/* ANIMATION */
+.featured,
+.topic,
+.gallery img {
+  animation: fadeUp 0.8s ease forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.topic:nth-child(1) { animation-delay: 0.2s; }
+.topic:nth-child(2) { animation-delay: 0.4s; }
+.topic:nth-child(3) { animation-delay: 0.6s; }
+
+.gallery img:nth-child(1) { animation-delay: 0.2s; }
+.gallery img:nth-child(2) { animation-delay: 0.4s; }
+.gallery img:nth-child(3) { animation-delay: 0.6s; }
+.gallery img:nth-child(4) { animation-delay: 0.8s; }
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gallery img {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}

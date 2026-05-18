@@ -1,0 +1,87 @@
+/* Background video */
+#bgVideo {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(0.3) contrast(1.2) saturate(1.3);
+}
+
+/* Overlay */
+.overlay {
+  text-align: center;
+  padding: 60px 20px;
+  color: white;
+}
+
+.title {
+  font-size: 3.5rem;
+  text-shadow: 0 0 20px cyan;
+}
+
+.subtitle {
+  margin-bottom: 40px;
+  color: #ccc;
+}
+
+/* COLLAGE GRID - more images */
+.collage {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+  padding: 20px;
+}
+
+/* Smaller cards */
+.card {
+  height: 160px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Keep hover but lighter */
+.card:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 20px cyan;
+}
+
+/* FUTURISTIC INFO PANEL */
+#infoPanel {
+  position: fixed;
+  bottom: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  max-width: 600px;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(15px);
+  color: white;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  transition: 0.5s;
+  box-shadow: 0 0 40px cyan;
+}
+
+/* Active panel */
+#infoPanel.active {
+  bottom: 10%;
+}
+
+/* Close button */
+#closeBtn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+  font-size: 20px;
+}

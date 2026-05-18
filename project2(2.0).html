@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Knowledge Library</title>
+  <link rel="stylesheet" href="project2(2.0).css">
+</head>
+<body>
+
+<h1 class="title"> Knowledge Library</h1>
+
+<div class="container">
+
+  <div class="card art">
+    <div class="content">
+      <h2>Creative Art</h2>
+      <p>Explore Painting, Sculpture & Photography</p>
+      <a href="project4(2.0).html">Explore</a>
+    </div>
+  </div>
+
+  <div class="card science">
+    <div class="content">
+      <h2>Modern Science</h2>
+      <p>Discovery,Concepts,Experiments</p>
+      <a href="project5(2.0).html">Explore</a>
+    </div>
+  </div>
+
+  <div class="card technology">
+    <div class="content">
+      <h2>Technology World</h2>
+      <p>Software, Hardware & Innovation</p>
+      <a href="project6(2.0).html">Explore</a>
+    </div>
+  </div>
+
+  <div class="card history">
+    <div class="content">
+      <h2>History Vault</h2>
+      <p>Ancient to Modern Civilizations</p>
+      <a href="project7(2.0).html">Explore</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===== EXTRA CONTENT SECTION ===== -->
+<section class="extra-section">
+  <h2>🌟 Featured Collections</h2>
+  <p>Discover curated highlights from art, science, technology, and history.</p>
+  <div class="extra-grid">
+    <div class="extra-card">🎨 Famous Paintings</div>
+    <div class="extra-card">🔬 Breakthrough Experiments</div>
+    <div class="extra-card">💻 Tech Innovations</div>
+    <div class="extra-card">📜 Historic Documents</div>
+  </div>
+</section>
+
+<section class="extra-section">
+  <h2>📚 Did You Know?</h2>
+  <p>Fun facts that connect knowledge across disciplines.</p>
+  <ul class="fact-list">
+    <li>Leonardo da Vinci was both an artist and scientist.</li>
+    <li>DNA stores information more densely than any computer chip.</li>
+    <li>The first computer weighed over 27 tons.</li>
+    <li>The Great Library of Alexandria inspired modern archives.</li>
+  </ul>
+</section>
+
+<section class="extra-section">
+  <h2>🚀 Explore More</h2>
+  <p>Move further into the future of learning and explore the world digitally.</p>
+</section>
+
+<script>
+document.querySelectorAll(".card").forEach(card => {
+  card.addEventListener("mousemove", e => {
+    let x = e.offsetX;
+    let y = e.offsetY;
+    let centerX = card.offsetWidth / 2;
+    let centerY = card.offsetHeight / 2;
+
+    let rotateX = -(y - centerY) / 10;
+    let rotateY = (x - centerX) / 10;
+
+    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+  });
+
+  card.addEventListener("mouseleave", () => {
+    card.style.transform = "rotateX(0) rotateY(0) scale(1)";
+  });
+});
+</script>
+</body>
+</html>

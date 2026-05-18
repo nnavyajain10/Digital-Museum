@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Galleria – Future of Museums</title>
+  <link rel="stylesheet" href="project9(2.0).css">
+</head>
+<body>
+
+<header class="hero">
+  <h1 class="hero-title">The Future of Museums</h1>
+  <p class="hero-subtitle">Where technology meets culture</p>
+  <button id="exploreBtn">Explore Innovations</button>
+</header>
+
+<main>
+  <!-- About Section -->
+  <section class="about">
+    <h2>About This Exhibit</h2>
+    <p>
+      Step into the digital frontier of museums. Experience interactive holograms, 
+      AI-guided tours, and immersive VR galleries that redefine how we connect with history, 
+      art, and science.A museum established in digital space,
+      either as an extension of a physical museum or as a fully virtual cultural platform.
+      to replicate, preserve, and share artifacts digitally,
+      protecting them from damage while making them accessible worldwide.
+      Projects where visitors can “talk”,
+      to historical figures like Rani Lakshmibai or virtually tour Ajanta & Ellora caves.
+    </p>
+  </section>
+
+  <!-- Innovations Section -->
+  <section class="innovations">
+    <h2>What's New</h2>
+    <div class="cards">
+
+      <div class="card"
+           data-title="Virtual Reality Galleries"
+           data-img="https://i.pinimg.com/736x/ce/c6/3c/cec63c399757a341d74d1593ee81dd51.jpg"
+           data-info="Virtual Reality allows users to walk inside ancient civilizations recreated in 3D. Visitors can explore temples, cities, and environments as if they were physically present. This creates a deeply immersive learning experience.">
+        <h3>Virtual Reality Galleries</h3>
+        <p>Walk through ancient civilizations recreated in 3D space.</p>
+      </div>
+
+      <div class="card"
+           data-title="AI Curators"
+           data-img="https://images.unsplash.com/photo-1677442135136-760c813028c0"
+           data-info="AI curators analyze visitor interests and provide personalized museum tours. They can recommend exhibits, narrate stories, and adapt experiences in real-time, making learning more engaging and customized.">
+        <h3>AI Curators</h3>
+        <p>Personalized recommendations and guided storytelling powered by AI.</p>
+      </div>
+
+      <div class="card"
+           data-title="Interactive Holograms"
+           data-img="https://images.unsplash.com/photo-1639322537228-f710d846310a"
+           data-info="Interactive holograms bring artifacts to life. Visitors can rotate, zoom, and interact with 3D projections of historical objects, making museum experiences more dynamic and engaging.">
+        <h3>Interactive Holograms</h3>
+        <p>Artifacts come alive with touch-sensitive holographic displays.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact">
+    <h2>Join the Experience</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <textarea placeholder="Your Thoughts"></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+</main>
+
+<!-- Modal -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2 id="modalTitle"></h2>
+    <img id="modalImage" src="" alt="">
+    <p id="modalInfo"></p>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const exploreBtn = document.getElementById("exploreBtn");
+  const cards = document.querySelectorAll(".card");
+  const modal = document.getElementById("modal");
+  const modalTitle = document.getElementById("modalTitle");
+  const modalImage = document.getElementById("modalImage");
+  const modalInfo = document.getElementById("modalInfo");
+  const closeBtn = document.querySelector(".close");
+
+  // ✅ ONLY REDIRECT (FIXED)
+  exploreBtn.addEventListener("click", () => {
+    window.location.href = "project10(2.0).html?playAudio=true";
+  });
+
+  // Card popup
+  cards.forEach(card => {
+    card.addEventListener("click", () => {
+      modalTitle.textContent = card.dataset.title;
+      modalImage.src = card.dataset.img;
+      modalInfo.textContent = card.dataset.info;
+      modal.style.display = "block";
+    });
+  });
+
+  closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+});
+</script>
+
+</body>
+</html>

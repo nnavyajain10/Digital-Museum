@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us -   Digital Museum</title>
+  <link rel="stylesheet" href="project3(2.0).css" />
+</head>
+<body>
+
+<header>
+  <nav>
+    
+
+    <div class="logo">Digital Museum</div>
+
+    <ul class="nav-right">
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ABOUT US BACKGROUND IMAGE -->
+  <section class="hero">
+    <h1>About Us</h1>
+  </section>
+
+  <!-- HISTORY -->
+  <section class="history">
+    <h2>Our Story</h2>
+    <div class="history-content">
+
+      <img src="https://i.pinimg.com/1200x/73/29/b3/7329b31f4cd8385f69c3d5abb56552e8.jpg" class="side-image">
+
+      <p>
+        The Digital Museum was founded with a vision to make art, history, and culture accessible to everyone, everywhere. What began as a small online collection has grown into a global platform, showcasing immersive exhibits, interactive timelines, and virtual tours of world-renowned artifacts.<br>
+
+Our mission is to bridge the gap between technology and heritage, offering visitors a chance to explore masterpieces and historical treasures from the comfort of their homes. With expert curators, engaging multimedia, and cutting-edge design, we strive to create experiences that are both educational and inspiring.<br>
+
+Beyond simply displaying artifacts, the Digital Museum focuses on storytelling. Each exhibit is carefully designed to provide historical context, cultural significance, and deeper insights into the lives of the people behind the creations. Through high-resolution visuals, 3D models, and augmented reality features, visitors can interact with exhibits in ways that traditional museums cannot offer.
+
+We also aim to support education by providing resources for students, researchers, and educators. From guided virtual tours to curated learning modules, the platform serves as a valuable tool for academic exploration and creative inspiration.<br>
+
+The Digital Museum continuously collaborates with international institutions, historians, and artists to expand its collection and ensure authenticity. By embracing innovation, we are redefining how cultural heritage is preserved and shared in the digital age.
+
+Looking ahead, we aspire to integrate more advanced technologies such as artificial intelligence and virtual reality to create even more personalized and immersive experiences. Our goal is not just to preserve the past, but to make it come alive for future generations.<br>
+        
+        
+      </p>
+      <div class="timeline reveal">
+
+  <div class="timeline-item">
+    <div class="timeline-content">
+      <h3>2018 - Beginning</h3>
+      <p>Started as a small digital collection of historical artifacts.</p>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-content">
+      <h3>2020 - Expansion</h3>
+      <p>Introduced interactive exhibits and global accessibility.</p>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-content">
+      <h3>2022 - Innovation</h3>
+      <p>Added 3D models and immersive virtual tours.</p>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-content">
+      <h3>2025 - Future Vision</h3>
+      <p>Integrating AI and VR for personalized museum experiences.</p>
+    </div>
+  </div>
+
+</div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h3>Don’t Just Visit History</h3>
+    <p>Experience It Digitally</p>
+  </section>
+  <!-- FAQ SECTION -->
+<section class="faq reveal" id="faq"></section>
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-item">
+    <h4>What is the Digital Museum?</h4>
+    <p class="faq-answer">It is an online platform to explore art, history, and culture digitally.</p>
+  </div>
+
+  <div class="faq-item">
+    <h4>Is it free to use?</h4>
+    <p class="faq-answer">Yes, basic access is completely free for all users.</p>
+  </div>
+
+  <div class="faq-item">
+    <h4>Can I explore exhibits in 3D?</h4>
+    <p class="faq-answer">Yes, we provide immersive and interactive 3D experiences.</p>
+  </div>
+
+  <div class="faq-item">
+  <h4>How can I access the museum?</h4>
+  <p class="faq-answer">You can explore it anytime online from any device.</p>
+</div>
+
+<div class="faq-item">
+  <h4>Do I need an account?</h4>
+  <p class="faq-answer">No account is required for basic access.</p>
+</div>
+
+<div class="faq-item">
+  <h4>Can students use this for study?</h4>
+  <p class="faq-answer">Yes, it is designed for students, researchers, and educators.</p>
+</div>
+
+<div class="faq-item">
+  <h4>Will more features be added?</h4>
+  <p class="faq-answer">Yes, we are continuously adding AI and VR-based experiences.</p>
+</div>
+
+</section>
+
+
+<!-- CONTACT SECTION -->
+ <section class="contact reveal" id="contact"> 
+ <h2>Contact Us</h2>
+<form id="contactForm">
+  <div class="contact-bar">
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="email" id="email" placeholder="Your Email" required>
+    <input type="text" id="subject" placeholder="Subject">
+    <input type="text" id="message" placeholder="Your Message">
+    <button type="submit">Send</button>
+  </div>
+</form>
+</section>
+
+</main>
+<script>
+  // Scroll reveal animation
+const revealElements = document.querySelectorAll(".reveal");
+
+window.addEventListener("scroll", () => {
+  revealElements.forEach(el => {
+    const windowHeight = window.innerHeight;
+    const elementTop = el.getBoundingClientRect().top;
+
+    if (elementTop < windowHeight - 100) {
+      el.classList.add("active");
+    }
+  });
+});
+
+
+// FAQ toggle
+document.querySelectorAll(".faq-item").forEach(item => {
+  item.addEventListener("click", () => {
+    item.classList.toggle("open");
+  });
+});
+// Timeline animation
+const timelineItems = document.querySelectorAll(".timeline-item");
+
+window.addEventListener("scroll", () => {
+  timelineItems.forEach(item => {
+    const top = item.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) {
+      item.classList.add("active");
+    }
+  });
+});
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener("click", function(e) {
+    e.preventDefault();
+
+    const target = document.querySelector(this.getAttribute("href"));
+
+    target.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  });
+});
+// Contact Form Submit
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const message = document.getElementById("message").value;
+
+  if (name && email && message) {
+    alert("✅ Message sent successfully!");
+
+    // Clear form
+    this.reset();
+  } else {
+    alert("⚠️ Please fill all required fields!");
+  }
+});
+</script>
+</body>
+</html>

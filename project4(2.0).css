@@ -1,0 +1,280 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background:brown;
+  color: white;
+}
+
+/* DARK MODE */
+.dark {
+  background: black;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+}
+
+/* HEADER BUTTONS */
+header button {
+  padding: 8px 15px;
+  border: none;
+  background: #ff4d6d;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* TITLE */
+header h2 {
+  font-size: 30px;
+  color: #ffd166;
+  letter-spacing: 1px;
+}
+
+/* MOON BUTTON */
+header button:last-child {
+  font-size: 20px;
+  padding: 10px 14px;
+  border-radius: 50%;
+}
+
+/* LAYOUT */
+.gallery {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 60px;
+}
+
+/* SIDE */
+.side {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* IMAGE BOX */
+.img-box {
+  position: relative;
+}
+
+/* IMAGES */
+.img-box img {
+  width: 200px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+
+  border: 6px solid white;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+.img-box img:hover {
+  transform: scale(1.07);
+}
+
+/* LIKE BUTTON */
+.img-box button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border: none;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+}
+
+.liked {
+  background: red !important;
+  color: white;
+}
+
+/* CENTER */
+.center {
+  text-align: center;
+  max-width: 420px;
+}
+
+.center h1 {
+  font-size: 50px;
+  letter-spacing: 2px;
+}
+
+.center p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* CENTER IMAGE */
+.center-img {
+  width: 300px;
+  margin-top: 10px;
+  border-radius: 12px;
+
+  border: 6px solid white;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+}
+
+/* POPUP */
+.popup {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+}
+
+/* POPUP CONTENT */
+.popup-content {
+  display: flex;
+  gap: 20px;
+  background: #222;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.popup img {
+  width: 300px;
+  border-radius: 10px;
+}
+
+.info {
+  max-width: 300px;
+}
+
+/* ===========================
+   SAFE ANIMATION (FIXED)
+   =========================== */
+
+/* default state = visible (prevents blank screen) */
+header,
+.side,
+.center,
+.center-img {
+  opacity: 1;
+}
+
+/* LEFT SIDE ANIMATION */
+body.loaded .side {
+  animation: slideLeft 0.8s ease forwards;
+}
+
+/* RIGHT SIDE ANIMATION */
+body.loaded .gallery .side:last-child {
+  animation: slideRight 0.8s ease forwards;
+}
+
+/* CENTER TEXT ANIMATION */
+body.loaded .center {
+  animation: riseUp 0.9s ease forwards;
+}
+
+/* CENTER IMAGE ANIMATION */
+body.loaded .center-img {
+  animation: zoomIn 1s ease forwards;
+}
+
+/* HEADER ANIMATION */
+body.loaded header {
+  animation: dropIn 0.6s ease forwards;
+}
+
+/* KEYFRAMES */
+
+@keyframes dropIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideLeft {
+  from { opacity: 0; transform: translateX(-80px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideRight {
+  from { opacity: 0; transform: translateX(80px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes riseUp {
+  from { opacity: 0; transform: translateY(60px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+
+/* EXTRA SECTION */
+.extra {
+  padding: 100px 20px;
+  text-align: center;
+  background: linear-gradient(to bottom, brown, black);
+}
+
+.extra h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.extra-cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.extra-card {
+  width: 180px;
+  padding: 20px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  transition: 0.4s;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.extra-card:hover {
+  transform: translateY(-10px) scale(1.05);
+}
+
+/* SCROLL REVEAL */
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.extra-card {
+  cursor: pointer;
+}
+
+.extra-card:hover {
+  transform: translateY(-10px) scale(1.08);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.7);
+}
+
+#cardImg {
+  width: 350px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+}

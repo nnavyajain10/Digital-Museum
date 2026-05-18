@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Digital Museum Entry</title>
+  <link rel="stylesheet" href="project8(2.0).css">
+</head>
+<body>
+
+<div class="container" id="box">
+  <h1>Digital Museum</h1>
+  <p id="tagline"></p>
+
+  <!-- TOGGLE -->
+  <div class="toggle">
+    <button id="signInTab" class="active">Sign In</button>
+    <button id="signUpTab">Sign Up</button>
+  </div>
+
+  <input type="text" id="username" placeholder="Name">
+  <input type="email" id="email" placeholder="Email">
+  <input type="password" id="password" placeholder="Password">
+
+  <!-- CONFIRM PASSWORD -->
+  <input type="password" id="confirmPassword" placeholder="Confirm Password" style="display:none;">
+
+  <button id="loginBtn">Sign In</button>
+
+  <!-- FORGOT PASSWORD -->
+  <p class="forgot" onclick="goToForgot()">Forgot Password?</p>
+
+  <p id="error">Please fill all fields correctly</p>
+</div>
+
+<script>
+// Typing effect
+const text = "Unlock Ancient Secrets & Premium Exhibits...";
+let i = 0;
+function typeEffect() {
+  if (i < text.length) {
+    document.getElementById("tagline").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeEffect, 40);
+  }
+}
+typeEffect();
+
+let isSignUp = false;
+
+// Toggle logic
+document.getElementById("signUpTab").onclick = function () {
+  isSignUp = true;
+  this.classList.add("active");
+  document.getElementById("signInTab").classList.remove("active");
+
+  document.getElementById("confirmPassword").style.display = "block";
+  document.getElementById("loginBtn").innerText = "Sign Up";
+};
+
+document.getElementById("signInTab").onclick = function () {
+  isSignUp = false;
+  this.classList.add("active");
+  document.getElementById("signUpTab").classList.remove("active");
+
+  document.getElementById("confirmPassword").style.display = "none";
+  document.getElementById("loginBtn").innerText = "Sign In";
+};
+
+// Validation
+document.getElementById("loginBtn").addEventListener("click", function () {
+
+  let user = document.getElementById("username").value.trim();
+  let email = document.getElementById("email").value.trim();
+  let pass = document.getElementById("password").value.trim();
+  let confirmPass = document.getElementById("confirmPassword").value.trim();
+
+  let error = document.getElementById("error");
+
+  // Empty fields check
+  if (user === "" || email === "" || pass === "") {
+    error.innerText = "All fields are required";
+    error.style.display = "block";
+    return;
+  }
+
+  // PASSWORD VALIDATION FOR BOTH SIGN IN & SIGN UP
+
+  // Minimum 6 characters
+  if (pass.length < 6) {
+    error.innerText =
+      "Password must be at least 6 characters long";
+    error.style.display = "block";
+    return;
+  }
+
+  // One uppercase letter
+  let upperCasePattern = /[A-Z]/;
+
+  if (!upperCasePattern.test(pass)) {
+    error.innerText =
+      "Password must contain at least one uppercase letter";
+    error.style.display = "block";
+    return;
+  }
+
+  // One lowercase letter
+  let lowerCasePattern = /[a-z]/;
+
+  if (!lowerCasePattern.test(pass)) {
+    error.innerText =
+      "Password must contain at least one lowercase letter";
+    error.style.display = "block";
+    return;
+  }
+
+  // One special character
+  let specialCharPattern = /[!@#$%^&*(),.?":{}|<>]/;
+
+  if (!specialCharPattern.test(pass)) {
+    error.innerText =
+      "Password must contain at least one special character";
+    error.style.display = "block";
+    return;
+  }
+
+  // Sign Up confirm password check
+  if (isSignUp && pass !== confirmPass) {
+    error.innerText = "Passwords do not match";
+    error.style.display = "block";
+    return;
+  }
+
+  // Hide error
+  error.style.display = "none";
+
+  // Animation and redirect
+  document.getElementById("box").classList.add("fade-out");
+
+  setTimeout(() => {
+    window.location.href = "project9(2.0).html";
+  }, 1000);
+
+});
+
+
+// Forgot password
+function goToForgot() {
+  window.location.href = "forgotpassword.html";
+}
+</script>
+
+</body>
+</html>

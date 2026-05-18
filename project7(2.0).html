@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>History Museum Experience</title>
+<link rel="stylesheet" href="project7(2.0).css">
+</head>
+
+<body>
+
+<header>
+  <button onclick="goToPage('project2(2.0).html')">⬅ Back</button>
+  <h1>🏛️ History Museum</h1>
+  <p>Step through time • Explore civilizations • Relive history</p>
+</header>
+
+<!-- 🧭 TIMELINE LINE -->
+<div class="timeline-line"></div>
+
+<!-- EXHIBIT 1 -->
+<section class="exhibit" onclick="openEvent(
+  '🏺 Ancient Civilizations',
+  'Ancient civilizations like Egypt, Mesopotamia, Indus Valley and China formed the foundation of human society. They created writing systems, built early cities, developed agriculture, trade, laws and architecture like pyramids and temples. These innovations shaped the future of humanity.'
+)">
+  <img src="https://i.pinimg.com/736x/83/e9/8c/83e98cd768d5402913185aff438991d6.jpg">
+
+  <div class="text">
+    <h2>Ancient Civilizations</h2>
+
+    <p>Birth of human society, cities and writing systems</p>
+
+    <p>
+      Ancient civilizations were early human societies that had:<br>
+      Cities 🏙️<br>
+      Governments 👑<br>
+      Writing systems ✍️<br>
+      Agriculture 🌾<br>
+      Religion and culture 🛕<br>
+    </p>
+  </div>
+</section>
+
+<!-- EXHIBIT 2 -->
+<section class="exhibit reverse" onclick="openEvent(
+  '⚔️ World Wars Era',
+  'The First and Second World Wars were global conflicts that changed everything. Millions of lives were lost, borders were redrawn, and new nations emerged. These wars also accelerated science, aviation, medicine, and technology development at an unprecedented scale.'
+)">
+  <img src="https://i.pinimg.com/736x/75/f4/aa/75f4aa644e542f1636141f317be5af36.jpg">
+
+  <div class="text">
+    <h2>World Wars</h2>
+
+    <p>Global conflicts that reshaped modern history</p>
+
+    <p>
+      The World Wars Era was a time of massive global conflict that caused destruction but also led to major technological progress and reshaped the modern world.
+    </p>
+  </div>
+</section>
+
+<!-- EXHIBIT 3 -->
+<section class="exhibit" onclick="openEvent(
+  '🕊️ Freedom Movements',
+  'Freedom movements across India, Africa, Asia and other colonized regions were driven by leaders and people demanding independence. Non-violent resistance, revolutions, and political struggles helped create modern democratic nations.'
+)">
+  <img src="https://i.pinimg.com/736x/85/69/1c/85691ce7c0fbe082781cc8ae9a57e85d.jpg">
+
+  <div class="text">
+    <h2>Freedom Movements</h2>
+
+    <p>Struggles for independence and democracy</p>
+
+    <p>
+      Freedom movements were struggles by countries and people to gain independence from foreign or colonial rule. These movements happened across Asia, Africa, and other parts of the world, especially during the 18th to 20th centuries.<br><br>
+
+      They were driven by the desire for self-rule, equality, and national identity.
+    </p>
+  </div>
+</section>
+
+<!-- EXHIBIT 4 -->
+<section class="exhibit reverse" onclick="openEvent(
+  '🚀 Modern Era',
+  'The modern era is defined by rapid technological advancement. Artificial intelligence, space exploration, digital communication and scientific breakthroughs are transforming the world. Humanity is now exploring Mars and building intelligent systems.'
+)">
+  <img src="https://i.pinimg.com/1200x/ac/aa/5d/acaa5d74b695512ab4f207ca30166cb1.jpg">
+
+  <div class="text">
+    <h2>Modern Era</h2>
+
+    <p>Technology, AI and space exploration age</p>
+
+    <p>
+      The Modern Era is the current phase of human history, where the world is rapidly changing due to science, technology, and global communication. It is often called the age of innovation because new discoveries and inventions are transforming everyday life.<br><br>
+
+      In this era, technology plays a major role. Computers, smartphones, the internet, and artificial intelligence have made life faster and more connected.
+    </p>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section class="quiz">
+  <h2>🧠 Guess the Era which shaped modern global history</h2>
+
+  <p>Test your knowledge of history</p>
+
+  <button onclick="checkAnswer('ancient')">Ancient Civilizations</button>
+  <button onclick="checkAnswer('war')">World War Era</button>
+  <button onclick="checkAnswer('modern')">Modern Era</button>
+  <button onclick="checkAnswer('freedom')">Freedom Movements</button>
+</section>
+
+<!-- POPUP -->
+<div id="popup" class="popup">
+  <div class="box">
+    <h2 id="title"></h2>
+    <p id="text"></p>
+
+    <span onclick="closePopup()">✖ Close</span>
+  </div>
+</div>
+
+<script>
+function goToPage(p){
+  window.location.href = p;
+}
+
+function openEvent(title, text){
+  document.getElementById("popup").style.display = "flex";
+  document.getElementById("title").innerText = title;
+  document.getElementById("text").innerText = text;
+}
+
+function closePopup(){
+  document.getElementById("popup").style.display = "none";
+}
+
+function checkAnswer(answer){
+  if(answer === 'war'){
+    alert("🎉 Correct! World Wars shaped modern global history.");
+  }
+  else{
+    alert("❌ Not correct. Try again!");
+  }
+}
+</script>
+
+<button class="next-btn" onclick="goToPage('project8(2.0).html')">
+  Next ➜
+</button>
+
+</body>
+</html>

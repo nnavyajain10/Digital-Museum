@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Science Dashboard</title>
+<link rel="stylesheet" href="project6(2.0).css">
+</head>
+
+<body>
+
+<header>
+  <button onclick="goToPage('project2(2.0).html')">⬅ Back</button>
+
+  <div class="title">
+    <h1>🌌 Technology Dashboard</h1>
+    <p>Exploring Space • AI • Physics • Future Tech</p>
+  </div>
+</header>
+
+<!-- STATS SECTION -->
+<section class="stats">
+
+  <div class="stat">
+    <h2 id="ai">0</h2>
+    <p>AI Models</p>
+  </div>
+
+  <div class="stat">
+    <h2 id="space">0</h2>
+    <p>Space Missions</p>
+  </div>
+
+  <div class="stat">
+    <h2 id="labs">0</h2>
+    <p>Research Labs</p>
+  </div>
+
+</section>
+
+<!-- GRID -->
+<section class="grid">
+
+  <div class="card" onclick="showInfo(this)">
+    <img src="https://i.pinimg.com/1200x/8a/27/59/8a275937e3c2f6f8d71bc5574a01bbe0.jpg">
+    <h3>Artificial Intelligence</h3>
+    <p>Machines that learn, think and evolve.</p>
+    <p>What AI can do:</p>
+    <p>👁️ Recognize images and faces</p>
+    <p>🗣️ Understand and generate language</p>
+    <p>📊 Analyze data and make predictions</p>
+    <p>🚗 Power self-driving systems</p>
+    <p>🎨 Create art, music, and videos</p>
+  </div>
+
+  <div class="card" onclick="showInfo(this)">
+    <img src="https://i.pinimg.com/736x/be/b3/81/beb381d02d98a24b7a3b85f02c5b7527.jpg">
+    <h3>Space Exploration</h3>
+    <p>Human journey beyond Earth and planets.</p>
+    <p>It includes:<br>
+
+    🛰️ Satellites orbiting Earth<br>
+   🚀 Rockets launching into space<br>
+   👨‍🚀 Human missions (astronauts)<br>
+   🤖 Space probes sent to other planets</p>
+  </div>
+
+  <div class="card" onclick="showInfo(this)">
+    <img src="https://i.pinimg.com/736x/c4/75/99/c475993630e85d0773db2ebc8aaf0a7f.jpg">
+    <h3>Quantum Physics</h3>
+    <p>Study of particles at atomic level.</p>
+    <p>
+        Quantum physics helps us understand:<br>
+
+        How atoms are built<br>
+        How light behaves<br>
+        How electricity flows<br>
+        How modern technology works
+    </p>
+  </div>
+
+</section>
+
+<!-- SIDE PANEL -->
+<div id="panel" class="panel">
+  <h2 id="pTitle"></h2>
+  <p id="pText"></p>
+  <button onclick="closePanel()">Close</button>
+</div>
+
+<script>
+function goToPage(p){
+  window.location.href = p;
+}
+
+/* PANEL OPEN */
+function showInfo(card){
+  document.getElementById("panel").style.right = "0";
+  document.getElementById("pTitle").innerText = card.querySelector("h3").innerText;
+  document.getElementById("pText").innerText = card.querySelector("p").innerText;
+}
+
+function closePanel(){
+  document.getElementById("panel").style.right = "-350px";
+}
+
+/* ANIMATED COUNTERS */
+function count(id, end){
+  let i = 0;
+  let el = document.getElementById(id);
+
+  let interval = setInterval(() => {
+    el.innerText = i;
+    i++;
+    if(i > end) clearInterval(interval);
+  }, 30);
+}
+
+/* LOAD ANIMATION */
+window.addEventListener("load", () => {
+  document.body.classList.add("loaded");
+
+  count("ai", 120);
+  count("space", 58);
+  count("labs", 90);
+});
+</script>
+
+</body>
+</html>

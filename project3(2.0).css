@@ -1,0 +1,368 @@
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  background-color: #000;
+  color: #fff;
+}
+
+/* Header */
+header {
+  background-color: #111;
+  padding: 1rem 2rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-right {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+nav a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* HERO WITH YOUR IMAGE */
+.hero {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: url("https://i.pinimg.com/1200x/59/61/73/596173d4cbcbc3ca6a27fa96e6760bdc.jpg") no-repeat center center/cover;
+  position: relative;
+  max-height: 300px;
+}
+
+/* Overlay */
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+}
+
+/* Text */
+.hero h1 {
+  position: relative;
+  font-size: 3rem;
+  z-index: 1;
+}
+
+/* History */
+.history {
+  padding: 2rem;
+  background: #222;
+}
+
+.history-content {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.side-image {
+  max-width: 200px;
+  border: 2px solid #444;
+}
+
+.history p {
+  flex: 2;
+}
+
+/* CTA */
+.cta {
+  text-align: center;
+  padding: 2rem;
+  background: #111;
+}
+/* ===== ANIMATIONS ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero text animation */
+.hero h1 {
+  animation: zoomFade 2s ease;
+}
+
+@keyframes zoomFade {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Image hover effect */
+.side-image {
+  transition: transform 0.5s, box-shadow 0.5s;
+}
+
+.side-image:hover {
+  transform: scale(1.1) rotate(1deg);
+  box-shadow: 0 0 20px rgba(255,255,255,0.4);
+}
+
+/* Paragraph animation */
+.history p {
+  line-height: 1.6;
+}
+
+/* ===== FAQ SECTION ===== */
+.faq {
+  background: #181818;
+  padding: 2rem;
+}
+
+.faq h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.faq-item {
+  background: #222;
+  margin: 10px 0;
+  padding: 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.faq-item:hover {
+  background: #333;
+}
+
+.faq-answer {
+  display: none;
+  margin-top: 10px;
+  color: #ccc;
+}
+
+.faq-item.open .faq-answer {
+  display: block;
+}
+
+/* ===== CONTACT SECTION ===== */
+/* ===== CONTACT SECTION FIX ===== */
+.contact {
+  padding: 3rem 2rem;
+  background: #111;
+  text-align: center;
+}
+
+.contact h2 {
+  margin-bottom: 20px;
+}
+
+/* Form layout */
+.contact form {
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Inputs */
+.contact input,
+.contact textarea {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+/* Textarea bigger */
+.contact textarea {
+  resize: none;
+  height: 120px;
+}
+
+/* Button */
+.contact button {
+  padding: 12px;
+  background: purple;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.contact button:hover {
+  background: #a020f0;
+  transform: scale(1.05);
+}
+
+
+/* ===== TIMELINE ===== */
+.timeline {
+  position: relative;
+  margin-top: 40px;
+  padding-left: 20px;
+}
+
+/* vertical line */
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 4px;
+  height: 100%;
+  background: #555;
+  transform: translateX(-50%);
+}
+
+/* each item */
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 20px;
+}
+
+/* left side */
+.timeline-item:nth-child(odd) {
+  left: 0;
+  text-align: right;
+}
+
+/* right side */
+.timeline-item:nth-child(even) {
+  left: 50%;
+}
+
+/* content box */
+.timeline-content {
+  background: #222;
+  padding: 15px;
+  border-radius: 10px;
+  position: relative;
+  transition: 0.4s;
+}
+
+/* hover glow */
+.timeline-content:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255,255,255,0.4);
+}
+
+/* dots */
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  width: 15px;
+  height: 15px;
+  background: purple;
+  border-radius: 50%;
+  left: calc(50% - 7px);
+  z-index: 1;
+  box-shadow: 0 0 10px purple;
+}
+
+/* animation */
+.timeline-item {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 0.6s;
+}
+
+.timeline-item.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+html {
+  scroll-behavior: smooth;
+}
+
+/* Row layout */
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+.row input {
+  flex: 1;
+}
+
+/* ===== HORIZONTAL CONTACT BAR ===== */
+.contact {
+  padding: 3rem 2rem;
+  background: #111;
+  text-align: center;
+}
+
+/* Container */
+.contact-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 900px;
+  margin: auto;
+  padding: 10px;
+  background: #1a1a1a;
+  border-radius: 10px;
+
+  /* Important: keeps everything in ONE LINE */
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+/* Inputs */
+.contact-bar input {
+  flex: 0 0 auto; /* prevents wrapping */
+  width: 180px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+/* Button */
+.contact-bar button {
+  flex: 0 0 auto;
+  padding: 10px 20px;
+  background: purple;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contact-bar button:hover {
+  background: #a020f0;
+}
+
+/* Smooth scroll style (optional scrollbar styling) */
+.contact-bar::-webkit-scrollbar {
+  height: 6px;
+}
+
+.contact-bar::-webkit-scrollbar-thumb {
+  background: purple;
+  border-radius: 10px;
+}

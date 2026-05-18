@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Science Magazine Pro</title>
+<link rel="stylesheet" href="project5(2.0).css">
+</head>
+
+<body>
+
+<header>
+  <button onclick="goToPage('project2(2.0).html')">⬅ Back</button>
+  <h1>🔬 Science Magazine</h1>
+</header>
+
+<!-- MAIN LAYOUT -->
+<div class="layout">
+
+  <!-- FEATURED STORY -->
+  <section class="featured">
+
+    <img src="https://i.pinimg.com/736x/e9/07/e6/e907e65f1ee54599d96a7787699c89de.jpg">
+
+    <div class="content">
+      <h2>🔬 Scientific Discoveries</h2>
+
+      <p>
+        Exploring the universe through knowledge and innovation
+      </p>
+
+      <button onclick="readMore()">📖 Read More</button>
+
+      <!-- hidden full article -->
+      <div id="moreText" class="hidden">
+        <p>
+          Science has continually reshaped human understanding of the universe and our place within it. 
+          From Newton’s laws of motion that explained the mechanics of the physical world,
+          to Darwin’s theory of evolution that revealed the origins of life,
+          each discovery has expanded the boundaries of knowledge.Scientific discoveries are not just milestones in history
+          — they are stepping stones toward a future defined by innovation and exploration.
+        </p>
+
+        <p>
+          Einstein’s relativity transformed our view of space and time, while quantum mechanics unlocked the mysteries of the subatomic realm.
+          Modern breakthroughs in genetics, medicine, and space exploration continue to drive progress,
+          offering solutions to global challenges and inspiring humanity to push beyond its limits.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SIDE TOPICS -->
+  <aside class="topics">
+
+    <div class="topic" onclick="showAI()">
+      <h3>🤖 AI Science</h3>
+      <p>Machines learning like humans</p>
+    </div>
+
+    <div class="topic" onclick="showQuantum()">
+      <h3>⚛️ Quantum Physics</h3>
+      <p>Strange particle behavior</p>
+    </div>
+
+    <div class="topic" onclick="showLab()">
+      <h3>🧪 Lab Research</h3>
+      <p>Scientific experiments</p>
+    </div>
+
+  </aside>
+
+</div>
+
+<!-- IMAGE GALLERY -->
+<!-- IMAGE GALLERY -->
+<section class="gallery">
+
+  <img src="https://i.pinimg.com/736x/f5/b3/77/f5b377b90dd4df801fa0cf19b496e36f.jpg"
+  onclick="openImg(this.src, 'Laboratory Science', 'Experiments that help scientists discover new medicines and technologies.')">
+
+  <img src="https://i.pinimg.com/736x/be/b3/81/beb381d02d98a24b7a3b85f02c5b7527.jpg"
+  onclick="openImg(this.src, 'Space Exploration', 'Studying planets, stars and galaxies beyond Earth.')">
+
+  <img src="https://i.pinimg.com/736x/e6/99/e9/e699e9fdad26003ddf4e2e14642814a7.jpg"
+  onclick="openImg(this.src, 'Quantum Physics', 'Understanding how tiny particles behave at atomic level.')">
+
+  <img src="https://i.pinimg.com/1200x/ac/aa/5d/acaa5d74b695512ab4f207ca30166cb1.jpg"
+  onclick="openImg(this.src, 'AI Science', 'Machines that can think, learn and make decisions like humans.')">
+
+</section>
+
+<!-- POPUP -->
+<div id="popup" class="popup">
+  <div class="box">
+    <h2 id="title"></h2>
+    <p id="text"></p>
+    <span onclick="closePopup()">✖</span>
+  </div>
+</div>
+
+<script>
+function goToPage(p){
+  window.location.href = p;
+}
+
+/* READ MORE */
+function readMore(){
+  const text = document.getElementById("moreText");
+
+  if(text.style.display === "block"){
+    text.style.display = "none";
+  } else {
+    text.style.display = "block";
+  }
+}
+
+/* ========== POPUP OPEN ========== */
+function openPopup(title, desc){
+  document.getElementById("popup").style.display = "flex";
+  document.getElementById("title").innerText = title;
+  document.getElementById("text").innerText = desc;
+}
+
+/* ========== GALLERY CLICK ========== */
+function openImg(src, title, desc){
+  openPopup(title, desc);
+}
+
+/* ========== TOPIC FUNCTIONS ========== */
+function showAI(){
+  openPopup(
+    "🤖 Artificial Intelligence",
+    "AI is a branch of computer science where machines learn, reason, and make decisions like humans. It is used in robotics, healthcare, self-driving cars, and chatbots."
+  );
+}
+
+function showQuantum(){
+  openPopup(
+    "⚛️ Quantum Physics",
+    "Quantum physics studies particles at atomic level. It explains superposition, entanglement, and probability-based behavior of matter."
+  );
+}
+
+function showLab(){
+  openPopup(
+    "🧪 Laboratory Science",
+    "Laboratory science involves controlled experiments to discover new medicines, materials, and chemical reactions that improve human life."
+  );
+}
+
+/* ========== CLOSE POPUP ========== */
+function closePopup(){
+  document.getElementById("popup").style.display = "none";
+}
+
+/* CLOSE WHEN CLICKING OUTSIDE */
+document.addEventListener("click", function(e){
+  const popup = document.getElementById("popup");
+  const box = document.querySelector(".box");
+
+  if(e.target === popup){
+    popup.style.display = "none";
+  }
+});
+</script>
+
+</body>
+</html>

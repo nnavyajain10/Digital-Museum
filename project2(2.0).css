@@ -1,0 +1,186 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #0F172A;
+  margin: 0;
+  padding: 40px;
+}
+
+.title {
+  text-align: center;
+  color: white;
+  margin-bottom: 40px;
+  font-size: 50px;
+  animation: fadeSlide 1.5s ease;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+/* Card Design */
+.card {
+  position: relative;
+  height: 260px;
+  border-radius: 20px;
+  overflow: hidden;
+  color: white;
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.4s ease;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: cardReveal 1s ease forwards;
+}
+
+.card:hover {
+  transform: scale(1.05) rotateX(5deg) rotateY(5deg);
+  box-shadow: 0 0 25px rgba(255,255,255,0.3);
+}
+
+/* Overlay */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+}
+
+/* Content */
+.content {
+  position: relative;
+  z-index: 2;
+}
+
+.content h2 {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.content p {
+  font-size: 0.9em;
+  margin: 8px 0;
+}
+
+/* Button */
+.content a {
+  display: inline-block;
+  padding: 8px 15px;
+  background: #ffffffcc;
+  color: black;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.8em;
+  transition: all 0.3s ease;
+}
+
+.content a:hover {
+  background: white;
+  transform: scale(1.1);
+  box-shadow: 0 0 10px white;
+}
+
+/* Background Images */
+.art {
+  background-image: url('https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=1000&auto=format&fit=crop');
+}
+
+.science {
+  background-image: url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=1000&auto=format&fit=crop');
+}
+
+.technology {
+  background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000&auto=format&fit=crop');
+}
+
+.history {
+  background-image: url('https://images.unsplash.com/photo-1461360228754-6e81c478b882?q=80&w=1000&auto=format&fit=crop');
+}
+
+/* Decorative Blob Shapes */
+.card::after {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  bottom: -40px;
+  right: -40px;
+  background: rgba(255,255,255,0.15);
+}
+
+/* ===== TITLE ANIMATION ===== */
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== CARD ENTRY ANIMATION ===== */
+@keyframes cardReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Delay each card */
+.card:nth-child(1) { animation-delay: 0.2s; }
+.card:nth-child(2) { animation-delay: 0.4s; }
+.card:nth-child(3) { animation-delay: 0.6s; }
+.card:nth-child(4) { animation-delay: 0.8s; }
+
+/* ===== FLOATING BACKGROUND ANIMATION ===== */
+body::before {
+  content: "";
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: moveBg 20s linear infinite;
+  z-index: 0;
+}
+
+@keyframes moveBg {
+  from { transform: translate(0, 0); }
+  to { transform: translate(50px, 50px); }
+}
+
+/* keep content above background */
+.container, .title, .extra-section {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== EXTRA SECTIONS ===== */
+.extra-section {
+  margin: 60px auto;
+  max-width: 900px;
+  text-align: center;
+  color: white;
+}
+
+.extra-section h2 {
+  font-size: 2em;
+  margin-bottom: 15px;
+  text-shadow: 0 0 15px rgba(255,255,255,0.4);
+}
+
+.extra-section p {
+  font-size: 1em;
+  margin-bottom: 25px;
+  color: #ddd;
+}
